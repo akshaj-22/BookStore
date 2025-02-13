@@ -16,7 +16,7 @@
    sudo systemctl start postgresql
    ```
    
-4. **⚙️ Create a `.env` file** and add MongoDB connection:
+4. **⚙️ Create a `.env` file** 
    ```env
    DB_HOST=your_database_host
    DB_USER=your_database_user
