@@ -3,18 +3,19 @@ require("dotenv").config();
 
 
 const authenticateUser = (req, res, next) => {
-  const token = req.header("Authorization");
+  console.log("Cookies received:", req.cookies); 
+  const token = req.cookies?.Authtoken;
 
   if (!token) {
-    return res.status(401).json({ error: "Access denied. No token provided." });
+    return res.status(401).json({ error: "Unauthorized: No token found" });
   }
 
   try {
-    const decoded = jwt.verify(token.split(" ")[1], process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     next();
   } catch (error) {
-    res.status(401).json({ error: "Invalid token." });
+    res.status(403).json({ error: "Unauthorized: Invalid token" });
   }
 };
 
