@@ -32,7 +32,6 @@
 1. **📥 Clone the repository:**  
    ```sh  
    git clone https://github.com/akshaj-22/BookStore.git
-   cd backend 
    ```
 
 2. **📥 Switch to backend:**  
